@@ -1,23 +1,15 @@
 import "./App.css";
-import SignIn from "./pages/SignInignIn";
+import SignIn from "./pages/SignIn";
 import SignUp from "./pages/signUp";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./pages/error"
+import dashboard from "./pages/dashboard";
+
 function App() {
   const myRouter = createBrowserRouter([
     {
       path: "/",
-      element: (
-        <div className="flex justify-center items-center min-h-screen">
-          <Link to="/login" className="text-blue-600">
-            Masuk
-          </Link>
-          |
-        <Link to="/register" className="text-primary text-sm font-bold">
-            Create an account
-        </Link>
-        </div>
-      ),
+      element: <dashboard />,
       errorElement: <ErrorPage />,
     },
     {

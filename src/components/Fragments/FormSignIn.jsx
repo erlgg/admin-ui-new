@@ -1,8 +1,8 @@
-import React from 'react'
-import LabeledInput from '../LabeledInput';
-import CheckBox from '../CheckBox';
-import Button from '../Button';
-import { Link } from 'react-router-dom';
+import React from "react";
+import LabeledInput from "../Elements/LabeledInput";
+import CheckBox from "../Elements/CheckBox";
+import Button from "../Elements/Button";
+import { Link } from "react-router-dom";
 
 function FormSignIn() {
   return (
@@ -82,7 +82,7 @@ function FormSignIn() {
       {/* link start */}
       <div className="flex justify-center">
         <Link to="/register" className="text-primary text-sm font-bold">
-            Create an account
+          Create an account
         </Link>
       </div>
       {/* link end */}
@@ -90,4 +90,4 @@ function FormSignIn() {
   );
 }
 
-export default FormSignIn
+export default FormSignIn;
