@@ -7,7 +7,9 @@ import CardUpcomingBill from '../components/Fragments/CardUpcomingBill';
 import CardRecentTransactions from '../components/Fragments/CardRecentTransactions';
 import CardStatistic from '../components/Fragments/CardStatistic';
 import CardExpensesBreakdown from '../components/Fragments/CardExpensesBreakdown';
-import { transactions, bills, expensesBreakdowns } from '../data';
+import { transactions, bills, expensesBreakdowns, balances, goals, expensesStatistics } from '../data';
+import balance from './balances';
+import { DoneAll } from '@mui/icons-material';
 
 
 function dashboard() {
@@ -17,10 +19,10 @@ function dashboard() {
       <MainLayout>
         <div className="grid sm:grid-cols-12 sm:grid-rows-3 gap-6 h-full">
           <div className="sm:col-span-4">
-            <CardBalance/>
+            <CardBalance data={balances}/>
           </div>
           <div className="sm:col-span-4">
-            <CardGoal/>
+            <CardGoal data={goals}/>
           </div>
           <div className="sm:col-span-4">
            <CardUpcomingBill data={bills}/>
@@ -29,7 +31,7 @@ function dashboard() {
            <CardRecentTransactions data={transactions}/>
           </div>
           <div className="sm:col-span-8">
-            <CardStatistic/>
+            <CardStatistic data={expensesStatistics}/>
           </div>
           <div className="sm:col-span-8">
             <CardExpensesBreakdown data={expensesBreakdowns}/>
