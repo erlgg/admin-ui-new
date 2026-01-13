@@ -4,7 +4,8 @@ import SignUp from "./pages/signUp";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./pages/error"
 import dashboard from "./pages/dashboard";
-
+import balance from "./pages/balances";
+import { Balance } from "@mui/icons-material";
 function App() {
   const myRouter = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ function App() {
       path: "/register",
       element: <SignUp />,
     },
+    {
+      path: "/balance",
+      element:<Balance/>
+    }
   ]);
 
   return (
