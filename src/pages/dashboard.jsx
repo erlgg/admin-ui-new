@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext, useEffect, useState } from 'react'
 import MainLayout from '../components/Layouts/MainLayout'
 import Card from '../components/Elements/Card'
 import CardBalance from '../components/Fragments/CardBalance';
@@ -10,9 +10,31 @@ import CardExpensesBreakdown from '../components/Fragments/CardExpensesBreakdown
 import { transactions, bills, expensesBreakdowns, balances, goals, expensesStatistics } from '../data';
 import balance from './balances';
 import { DoneAll } from '@mui/icons-material';
-
+import { goalService } from '../services/dataService';
+import {AuthService} from "../context/authContext";
 
 function dashboard() {
+
+    	const [goals, setGoals] = useState({});
+
+      const fetchGoals = async () => {
+        try {
+          const data = await goalService();
+          setGoals(data);
+        } catch (err) {
+          console.error("Gagal mengambil data goals:", err);
+          if (err.status === 401) {
+            logout();
+          }
+        }
+      };
+
+      useEffect(() => {
+        fetchGoals();
+      }, []);
+
+      console.log(goals);
+      
     console.log(transactions);
   return (
     <>

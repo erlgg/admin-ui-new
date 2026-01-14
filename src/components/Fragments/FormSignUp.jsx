@@ -1,8 +1,8 @@
 import React from "react";
-import SignupForm from "../components/Fragments/FormSignUp";
-import Button from "../components/Button";
+import FormSignUp from "../components/Fragments/FormSignUp";
+import Button from "../Elements/Button";
 
-const SignupForm = () => {
+const FormSignUp = () => {
   const handleSignup = (e) => {
     e.preventDefault();
 
