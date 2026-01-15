@@ -1,10 +1,10 @@
 import "./App.css";
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/signUp";
+import SignInPage from "./pages/SignIn";
+import SignUpPage from "./pages/signUp";
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import ErrorPage from "./pages/error"
-import dashboard from "./pages/dashboard";
-import balance from "./pages/balances";
+import DashboardPage from "./pages/dashboard";
+import BalancePage from "./pages/balances";
 import { AuthContext } from "./context/authContext";
 import { useContext } from "react";
 
@@ -15,7 +15,7 @@ function App() {
     return user ? children : <Navigate to="/login/" />
   }
 
-  const NotQequireAuth =({children}) => {
+  const NotRequireAuth =({children}) => {
     return user ? <Navigate to="/" /> : children;
   };
 

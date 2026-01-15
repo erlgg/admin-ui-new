@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react"; // Pastikan useState diimpor
 import Card from "../Elements/Card";
+import Icon from "../Elements/icon"; // Pastikan path icon benar
 
 function CardRecentTransaction(props) {
   const { data } = props;
   const tabs = ["All", "Revenue", "Expense"];
   const [active, setActive] = useState("All");
-  
+
   const filteredData =
     active === "All" ? data : data.filter((item) => item.type === active);
 
@@ -21,7 +22,7 @@ function CardRecentTransaction(props) {
                 <button
                   key={tab}
                   className={
-                    active == tab
+                    active === tab
                       ? "px-4 font-bold text-primary border-b-4 border-primary"
                       : "px-4 font-bold text-gray-01"
                   }
@@ -32,7 +33,8 @@ function CardRecentTransaction(props) {
                 </button>
               ))}
             </div>
-            {data.map((item) => (
+
+            {filteredData.map((item) => (
               <div key={item.id} className="flex justify-between my-6">
                 <div className="flex">
                   <div className="bg-special-bg text-gray-02 px-3 rounded-lg flex flex-col place-content-center">
